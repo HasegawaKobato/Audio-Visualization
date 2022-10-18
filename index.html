@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .input {
+      margin-left: 10px;
+    }
+
+    .input input[type="number"] {
+      width: 50px;
+    }
+
+    .input input[type="text"] {
+      width: 100px;
+    }
+
+    .circleCount {
+      width: 50px;
+      height: 24px;
+    }
+
+    .actions {
+      width: 100%;
+      min-width: 1570px;
+      height: 28px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    button {
+      width: 100px;
+      height: 26px;
+      position: relative;
+      z-index: 50;
+    }
+
+    canvas {
+      position: absolute;
+      top: 28px;
+      left: 0;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="actions">
+    <button id="btn" hidden title="(Space)">Play / Pause</button>
+    <input id="file" class="input" type="file" accept="mp3" />
+    <span>
+      <span class="input">
+        Volume: <input type="number" value="1" name="volume" step="0.1" />
+      </span>
+      <span class="input">
+        Draw Type: <input type="radio" value="circle" name="drawType" />circle
+      </span>
+      <span class="input">
+        <input type="radio" value="line" name="drawType" checked />line
+      </span>
+      <span class="input" hidden>
+        Circle Count:
+        <select class="circleCount" name="circleCount" title='Only used in draw type is "circle".'>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </span>
+      <span class="input" hidden>
+        Smooth Circle:
+        <input type="checkbox" name="smoothCircle" />
+      </span>
+      <span class="input">
+        Line Weight: <input type="number" value="1" maxlength="2" name="lineWeight" />
+      </span>
+      <span class="input">
+        Line Color: <input type="text" value="" maxlength="9" name="lineColor"
+          title='#FF0EF2, red, etc...  "default" or "" will be default.' />
+      </span>
+      <button id="submit">Confirm</button>
+    </span>
+  </div>
+
+  <canvas id="canvas" width="1024" height="1024"></canvas>
+</body>
+<script src="./main.js"></script>
+
+</html>
